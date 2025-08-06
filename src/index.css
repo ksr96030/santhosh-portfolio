@@ -11,9 +11,16 @@ section {
   @apply relative py-16 px-4;
 }
 
-section::before {
-  content: '';
-  @apply absolute top-0 left-1/2 transform -translate-x-1/2 h-1 w-24 bg-indigo-400 rounded-full;
+
+@layer base {
+  *:focus {
+    @apply outline-none;
+  }
+
+ 
+  button:focus, a:focus, input:focus, textarea:focus {
+    @apply outline-none ring-2 ring-indigo-400;
+  }
 }
 
 h2 {
@@ -34,10 +41,10 @@ footer {
 
 @layer utilities {
   .fade-in-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.9s ease-out forwards;
-}
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.9s ease-out forwards;
+  }
 
   @keyframes fadeInUp {
     to {
